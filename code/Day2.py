@@ -35,10 +35,12 @@ df['30D_MA'] = df['Close'].rolling(
 # 输出结果
 print("\n最近5天的收盘价和30天均价：\n", df[['Close', '30D_MA']].tail())
 
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 # 绘制收盘价与30日均线
-plt.figure(figsize=(12,6))
+plt.figure(figsize=(10, 6))  # 增大画布尺寸
 plt.plot(df.index, df['Close'], label='Close Price', alpha=0.6)
 plt.plot(df.index, df['30D_MA'], label='30D Moving Avg', color='red', linewidth=2)
 plt.title(f"{symbol} Closing Price vs 30-Day Moving Average")
@@ -46,4 +48,5 @@ plt.xlabel("Date")
 plt.ylabel("Price ($)")
 plt.legend()
 plt.grid(linestyle='--', alpha=0.5)
+plt.tight_layout()  # 在 plt.show() 前调用
 plt.show()
