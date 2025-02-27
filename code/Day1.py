@@ -27,6 +27,7 @@ A: 历史数据下载不全, 无法显示. 故下载.csv文件进行操作.
 import pandas as pd
 
 #苹果公司股票.csv文件的绝对路径
+#之后所有代码, 均用苹果股票数据
 data = pd.read_csv('AAPL_company_stock.csv')
 #打印前5行数据
 print(data.head())
